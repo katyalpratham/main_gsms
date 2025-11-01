@@ -1,0 +1,66 @@
+{
+  // VS Code tasks to run backend (Flask) and frontend (Vite) in split terminals
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Backend",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/BACKEND"
+      },
+      "command": "python server.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Frontend",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/FRONTEND"
+      },
+      "command": "npm run dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "Install Backend Deps",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/BACKEND"
+      },
+      "command": "pip install -r requirements.txt",
+      "problemMatcher": []
+    },
+    {
+      "label": "Install Frontend Deps",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/FRONTEND"
+      },
+      "command": "npm install",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start All",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Start Backend",
+        "Start Frontend"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Install All Deps",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Install Backend Deps",
+        "Install Frontend Deps"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
+
+
+
+
+
+

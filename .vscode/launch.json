@@ -1,0 +1,40 @@
+{
+  // Launch configurations primarily to provide a handy compound to start both
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Backend (Flask)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/BACKEND/server.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "FLASK_ENV": "development"
+      }
+    },
+    {
+      "name": "Run Frontend (Vite)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/FRONTEND"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run GSMS (Backend + Frontend)",
+      "configurations": [
+        "Debug Backend (Flask)",
+        "Run Frontend (Vite)"
+      ],
+      "stopAll": true
+    }
+  ]
+}
+
+
+
+
+
+
